@@ -27,11 +27,7 @@ client/public/service-worker.js
 
 # Server (Node.js/Express)
 server/node_modules/
-server/.env
-server/.env.local
-server/.env.development.local
-server/.env.test.local
-server/.env.production.local
+
 
 # OS generated files
 .DS_Store

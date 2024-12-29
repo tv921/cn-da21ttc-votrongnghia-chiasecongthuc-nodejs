@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const authenticateToken = (req, res, next) => {
-  const token = req.header('Authorization')?.split(' ')[1]; // Lấy token từ header Authorization
+  const token = req.header('Authorization')?.split(' ')[1]; 
   if (!token) {
     return res.status(401).json({ message: 'Token không tồn tại' });
   }

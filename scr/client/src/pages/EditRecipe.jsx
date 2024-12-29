@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const EditRecipe = () => {
-  const { id } = useParams(); // Lấy ID của công thức từ URL
+  const { id } = useParams(); 
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     title: '',
@@ -17,7 +17,7 @@ const EditRecipe = () => {
   });
 
   useEffect(() => {
-    // Fetch dữ liệu công thức để điền vào form
+    
     const fetchRecipe = async () => {
       try {
         const response = await axios.get(`http://localhost:5000/api/recipes/${id}`);
@@ -25,12 +25,12 @@ const EditRecipe = () => {
 
         setFormData({
           title: recipe.title,
-          images: null, // Không lấy ảnh gốc, chỉ hỗ trợ thay mới
+          images: null, 
           ingredients: recipe.ingredients || [''],
           cookingStyle: recipe.cookingStyle || '',
           cookingTime: recipe.cookingTime || '',
           stepsDescriptions: recipe.stepsDescriptions || [''],
-          stepsImages: [], // Không lấy ảnh gốc, chỉ hỗ trợ thay mới
+          stepsImages: [], 
           video: recipe.video || '',
         });
       } catch (error) {
@@ -112,7 +112,7 @@ const EditRecipe = () => {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       alert('Công thức đã được cập nhật!');
-      navigate(`/recipes/${id}`); // Điều hướng về trang chi tiết công thức
+      navigate(`/recipes/${id}`); 
     } catch (error) {
       console.error('Lỗi khi cập nhật công thức:', error);
       alert('Có lỗi xảy ra khi cập nhật công thức');

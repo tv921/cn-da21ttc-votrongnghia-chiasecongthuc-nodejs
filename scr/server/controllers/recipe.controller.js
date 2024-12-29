@@ -1,7 +1,7 @@
 const Recipe = require('../models/recipe');
 const path = require('path');
 
-// Tìm kiếm món ăn theo tên và nguyên liệu
+
 const searchRecipes = async (req, res) => {
   const { query } = req.query;
   try {
@@ -20,10 +20,10 @@ const searchRecipes = async (req, res) => {
 
 const getRecipes = async (req, res) => {
   try {
-    const recipes = await Recipe.find(); // Lấy tất cả công thức
-    res.status(200).json(recipes); // Trả về JSON
+    const recipes = await Recipe.find(); 
+    res.status(200).json(recipes); 
   } catch (error) {
-    res.status(500).json({ message: 'Error fetching recipes', error }); // Trả về lỗi
+    res.status(500).json({ message: 'Error fetching recipes', error });
   }
 };
 
@@ -34,15 +34,15 @@ const getRecipeById = async (req, res) => {
       .populate({
         path: 'ratings',
         populate: {
-          path: 'userId', // Nạp thông tin người dùng trong đánh giá
-          select: 'username email', // Chỉ lấy trường username và email
+          path: 'userId', 
+          select: 'username email',
         },
       })
       .populate({
         path: 'comments',
         populate: {
-          path: 'userId', // Nạp thông tin người dùng trong bình luận
-          select: 'username email', // Chỉ lấy trường username và email
+          path: 'userId', 
+          select: 'username email', 
         },
       });
 
@@ -50,7 +50,7 @@ const getRecipeById = async (req, res) => {
       return res.status(404).json({ message: 'Recipe not found' });
     }
 
-    res.status(200).json(recipe); // Trả về thông tin đầy đủ của recipe
+    res.status(200).json(recipe);
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Error fetching recipe details' });
@@ -65,17 +65,17 @@ const createRecipe = async (req, res) => {
   try {
     const { title, cookingStyle, cookingTime, ingredients, stepsDescriptions, video } = req.body;
 
-    // Xử lý các file upload (stepsImages và images)
+    
     const stepsImages = req.files
       .filter((file) => file.fieldname.startsWith('stepsImages'))
       .map((file) => file.path.replace(path.join(__dirname, '../../client/public'), '').replace(/\\/g, '/'));
 
     const images = req.files.find((file) => file.fieldname === 'images')?.path.replace(path.join(__dirname, '../../client/public'), '').replace(/\\/g, '/') || '';
 
-    // Tạo công thức mới
+ 
     const newRecipe = new Recipe({
       title,
-      images, // Lưu đường dẫn tương đối
+      images, 
       ingredients: Array.isArray(ingredients) ? ingredients : [ingredients],
       cookingStyle,
       cookingTime,
@@ -84,7 +84,7 @@ const createRecipe = async (req, res) => {
       video,
     });
 
-    // Lưu công thức mới vào cơ sở dữ liệu
+   
     await newRecipe.save();
     res.status(201).json({ message: 'Công thức đã được thêm!', recipe: newRecipe });
   } catch (error) {

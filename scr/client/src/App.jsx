@@ -35,19 +35,19 @@ function App() {
     if (token) {
       setIsLoggedIn(true);
       try {
-        const decoded = jwtDecode(token); // Giải mã token
-        console.log("Decoded token:", decoded); // In ra token đã giải mã để kiểm tra
-        setUserRole(decoded.role); // Lấy vai trò từ token
-        console.log("User Role:", decoded.role); // In ra vai trò
+        const decoded = jwtDecode(token); 
+        console.log("Decoded token:", decoded); 
+        setUserRole(decoded.role); 
+        console.log("User Role:", decoded.role); 
       } catch (error) {
         console.error("Invalid token", error);
         setIsLoggedIn(false);
       }
     }
 
-    // Ghi nhận lượt truy cập
+    
   axios.post("http://localhost:5000/api/visits/record").catch((err) => console.error("Failed to record visit:", err));
-  }, []); // Chạy khi component mount hoặc khi token thay đổi.
+  }, []); 
 
   const handleLogin = () => {
     setIsLoggedIn(true);
@@ -55,7 +55,7 @@ function App() {
     if (token) {
       try {
         const decoded = jwtDecode(token);
-        setUserRole(decoded.role); // Cập nhật ngay vai trò
+        setUserRole(decoded.role); 
       } catch (error) {
         console.error("Invalid token during login", error);
       }
@@ -66,7 +66,7 @@ function App() {
   const handleLogout = () => {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
-    setUserRole(null); // Reset userRole khi đăng xuất
+    setUserRole(null);
   };
 
   return (

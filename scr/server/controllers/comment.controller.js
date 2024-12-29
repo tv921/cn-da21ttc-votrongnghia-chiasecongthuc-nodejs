@@ -24,11 +24,11 @@ const getComments = async (req, res) => {
   try {
     const { recipeId } = req.params;
     const comments = await Comment.find({ recipeId })
-      .populate('userId', 'username')  // Populate chỉ lấy trường `username` từ `User`
-      .populate('recipeId');  // Populate `recipeId` nếu cần
+      .populate('userId', 'username')  
+      .populate('recipeId');  
 
-    console.log(comments); // In ra để kiểm tra dữ liệu
-    res.json(comments); // Trả về dữ liệu bình luận đã được populate
+    console.log(comments); 
+    res.json(comments); 
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

@@ -5,11 +5,11 @@ const Logout = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    localStorage.removeItem('token'); // Xóa token khỏi localStorage
-    navigate('/login'); // Điều hướng về trang đăng nhập
+    localStorage.removeItem('token'); 
+    navigate('/login'); 
   }, [navigate]);
 
-  return null; // Không cần giao diện cho trang đăng xuất
+  return null;
 };
 
 export default Logout;

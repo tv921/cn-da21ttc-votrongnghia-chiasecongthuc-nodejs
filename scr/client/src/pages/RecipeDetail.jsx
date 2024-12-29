@@ -14,7 +14,7 @@ function RecipeDetail() {
         const response = await fetch(`http://localhost:5000/api/recipes/${id}`);
         if (!response.ok) throw new Error('Error fetching recipe details');
         const data = await response.json();
-        console.log(data); // In ra để kiểm tra dữ liệu bình luận
+        console.log(data); 
         setRecipe(data);
       } catch (error) {
         console.error('Error:', error);
@@ -33,16 +33,16 @@ function RecipeDetail() {
 
   const handleRatingAdded = (newRating) => {
     setRecipe((prev) => {
-      const updatedRatings = [...prev.ratings, newRating]; // Cập nhật mảng ratings
+      const updatedRatings = [...prev.ratings, newRating]; 
       const average = (
         updatedRatings.reduce((sum, r) => sum + r.rating, 0) /
         updatedRatings.length
-      ).toFixed(1); // Tính lại điểm trung bình
+      ).toFixed(1); 
   
       return {
         ...prev,
-        ratings: updatedRatings, // Cập nhật lại mảng ratings
-        averageRating: average, // Cập nhật lại điểm trung bình
+        ratings: updatedRatings, 
+        averageRating: average, 
       };
     });
   };
@@ -50,7 +50,7 @@ function RecipeDetail() {
 
   if (!recipe) return <p>Loading...</p>;
 
-  // Tính điểm trung bình, nếu không có đánh giá thì sẽ hiển thị là 'Chưa có đánh giá'
+ 
 const averageRating =
 recipe.ratings && recipe.ratings.length > 0
   ? (

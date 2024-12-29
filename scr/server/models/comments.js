@@ -4,12 +4,12 @@ const { Schema } = mongoose;
 const commentSchema = new Schema({
   userId: {
     type: Schema.Types.ObjectId,
-    ref: "User",  // Tham chiếu đến User
+    ref: "User",  
     required: true,
   },
   recipeId: {
     type: Schema.Types.ObjectId,
-    ref: "Recipe", // Tham chiếu đến Recipe
+    ref: "Recipe", 
     required: true,
   },
   content: {

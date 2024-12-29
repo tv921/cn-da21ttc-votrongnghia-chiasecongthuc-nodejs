@@ -6,7 +6,7 @@ const ManageRecipes = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    // Lấy danh sách công thức từ API
+    
     const fetchRecipes = async () => {
       try {
         const response = await axios.get('http://localhost:5000/api/recipes');

@@ -4,8 +4,8 @@ import React from 'react';
 
 const SearchBar = ({ query, setQuery, searchRecipes }) => {
     const handleSubmit = (e) => {
-        e.preventDefault(); // Ngăn chặn việc gửi form mặc định
-        searchRecipes(); // Gọi hàm tìm kiếm
+        e.preventDefault(); 
+        searchRecipes(); 
     };
 
     return(    

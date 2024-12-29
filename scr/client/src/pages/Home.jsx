@@ -23,7 +23,7 @@ function Home() {
     }
   };
 
-  // Fetch popular recipes when the component mounts
+  
   useEffect(() => {
     const fetchPopularRecipes = async () => {
       try {
