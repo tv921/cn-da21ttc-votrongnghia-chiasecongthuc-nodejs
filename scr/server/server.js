@@ -10,6 +10,7 @@ const userRoutes = require('./routes/user.routes');
 const commentRoutes = require('./routes/comment.routes');
 const ratingRoutes = require('./routes/rating.routes');
 const visitRoutes = require('./routes/visit.routes');
+const statisticsRoutes = require("./routes/statistics.routes");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -33,6 +34,8 @@ app.use('/api/comments', commentRoutes);
 app.use('/api/ratings', ratingRoutes);
 
 app.use('/api/visits', visitRoutes);
+
+app.use("/api/statistics", statisticsRoutes);
 
 // Route kiểm tra server
 app.get('/', (req, res) => {

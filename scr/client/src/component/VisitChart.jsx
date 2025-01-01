@@ -36,7 +36,7 @@ function VisitChart() {
               data: visits,
               borderColor: "rgba(75, 192, 192, 1)",
               backgroundColor: "rgba(75, 192, 192, 0.2)",
-              tension: 0.2,
+              tension: 0.3,
             },
           ],
         });
@@ -46,8 +46,8 @@ function VisitChart() {
 
   
   return (
-    <div className="p-4 bg-white shadow rounded">
-      <h2 className="text-lg font-bold mb-4">Biểu đồ lượt truy cập trang web</h2>
+    <div className="p-4 justify-items-center h-96 bg-gray-100 rounded">
+
       {chartData ? (
         <Line
           data={chartData}
