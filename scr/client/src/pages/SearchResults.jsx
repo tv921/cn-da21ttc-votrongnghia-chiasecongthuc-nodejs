@@ -44,7 +44,7 @@ function SearchResults() {
                 <p className="text-xl text-gray-600 mb-4">Thời gian nấu: {recipe.cookingTime}</p>
                 {recipe.images && (
                   <img
-                    src={recipe.images}
+                    src={`http://localhost:5000/uploads/${recipe.images}`}
                     alt={recipe.title}
                     className="w-48 h-auto rounded-md"
                   />

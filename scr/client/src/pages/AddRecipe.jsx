@@ -139,18 +139,26 @@ const AddRecipe = () => {
             + Thêm nguyên liệu
           </button>
         </div>
-
         {/* Cooking Style */}
         <div className="mb-4">
-          <label className="block text-gray-700 font-medium mb-2">Phong cách nấu ăn</label>
-          <input
-            type="text"
+          <label className="block text-gray-700 font-medium mb-2">Cách chế biến</label>
+          <select
             name="cookingStyle"
             value={formData.cookingStyle}
             onChange={handleInputChange}
             className="w-full p-3 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
-          />
+          >
+            <option value="">-- Chọn cách chế biến --</option>
+            <option value="luộc">Luộc</option>
+            <option value="kho">Kho</option>
+            <option value="hấp">Hấp</option>
+            <option value="chiên">Chiên</option>
+            <option value="xào">Xào</option>
+            <option value="nướng">Nướng</option>
+            <option value="rang">Rang</option>
+          </select>
         </div>
+
 
         {/* Cooking Time */}
         <div className="mb-4">

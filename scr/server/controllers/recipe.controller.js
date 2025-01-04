@@ -68,9 +68,9 @@ const createRecipe = async (req, res) => {
     
     const stepsImages = req.files
       .filter((file) => file.fieldname.startsWith('stepsImages'))
-      .map((file) => file.path.replace(path.join(__dirname, '../../client/public'), '').replace(/\\/g, '/'));
+      .map((file) => file.path.replace(path.join(__dirname, '../uploads'), '').replace(/\\/g, '/'));
 
-    const images = req.files.find((file) => file.fieldname === 'images')?.path.replace(path.join(__dirname, '../../client/public'), '').replace(/\\/g, '/') || '';
+    const images = req.files.find((file) => file.fieldname === 'images')?.path.replace(path.join(__dirname, '../uploads'), '').replace(/\\/g, '/') || '';
 
  
     const newRecipe = new Recipe({
@@ -112,9 +112,9 @@ const updateRecipe = async (req, res) => {
     if (req.files) {
       const stepsImages = req.files
         .filter((file) => file.fieldname.startsWith('stepsImages'))
-        .map((file) => file.path.replace(path.join(__dirname, '../../client/public'), '').replace(/\\/g, '/'));
+        .map((file) => file.path.replace(path.join(__dirname, '../uploads'), '').replace(/\\/g, '/'));
       
-      const images = req.files.find((file) => file.fieldname === 'images')?.path.replace(path.join(__dirname, '../../client/public'), '').replace(/\\/g, '/') || '';
+      const images = req.files.find((file) => file.fieldname === 'images')?.path.replace(path.join(__dirname, '../uploads'), '').replace(/\\/g, '/') || '';
 
       if (stepsImages.length) updatedData.stepsImages = stepsImages;
       if (images) updatedData.images = images;

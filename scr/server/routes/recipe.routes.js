@@ -9,9 +9,8 @@ const router = express.Router();
 
 
 const upload = multer({
-  dest: path.join(__dirname, '../../client/public/images/'), 
+  dest: path.join(__dirname, '../uploads'), 
 });
-
 
 router.get('/search', searchRecipes);
 
